@@ -1,5 +1,4 @@
 #include"cellSegment.h"
-#include"CC.h"
 #include<opencv2/opencv.hpp> 
 #include<iostream>
 #include<vector>
@@ -18,6 +17,10 @@ using cv::threshold;
 using cv::connectedComponents;
 using std::vector;
 using cv::Point;
+using cv::distanceTransform;
+using cv::watershed;
+using cv::normalize;
+
 
 
 int main()
@@ -53,11 +56,48 @@ int main()
 	//Mat connected;
 	//connectedComponents(eroded, connected,8, CV_16U);
 	//imshow("connected", connected);
-	CC c(eroded);
-	vector<vector<Point>> temp1 = c.findComponents(30);
-	Mat temp2 = Mat::zeros(eroded.size(), eroded.type());
-	vec2Mat(temp1, temp2);
-	imshow("temp2", temp2);
+	Mat connected;
+	bwareaopen(eroded, connected, 30);
+	imshow("connected", connected);
+
+	Mat dist;
+	Mat connected2;
+	cv::bitwise_not(connected, connected2);
+	distanceTransform(connected2, dist, cv::DIST_L2, 3);
+	//normalize(dist, dist, 0, 1, cv::NORM_MINMAX);
+	dist.convertTo(dist, CV_8U);
+	imshow("dist", dist);
+
+	Mat dist2;
+
+	cvtColor(dist, dist2, cv::COLOR_GRAY2BGR);
+	Mat DL;
+	connectedComponents(connected,DL);
+	//DL.convertTo(DL, CV_32S);
+
+	watershed(dist2, DL);
+
+	Mat DL2;
+	normalize(DL, DL2, 0, 255, cv::NORM_MINMAX);
+	DL.convertTo(DL2, CV_8U);
+	imshow("DL2", DL2);
+	
+
+	//normalize(DL, DL, 0, 255, cv::NORM_MINMAX);
+	//DL.convertTo(DL, CV_8S);
+
+	Mat bgm = Mat::zeros(DL.size(), CV_8U);
+	for (size_t i = 0; i != bgm.rows; ++i) {
+		for (size_t j = 0; j != bgm.cols; ++j) {
+			if (DL.at<int>(i,j)== -1) {
+				bgm.at<unsigned char>(i, j) = 255;
+			}
+		}
+	}
+	imshow("bgm", bgm);
+
+	Mat combine = connected | bgm;
+	imshow("combine", combine);
 
 	waitKey(0);
 

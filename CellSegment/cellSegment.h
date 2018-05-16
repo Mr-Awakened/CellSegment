@@ -3,4 +3,5 @@
 #include<vector>
 
 void imadjust(const cv::Mat &src, cv::Mat &dst, const int saturate = 1, const cv::Vec2b outRange = cv::Vec2b(0, 255));
-void vec2Mat(const std::vector<std::vector<cv::Point>> &src, cv::Mat &dst);
+void bwareaopen(const cv::Mat &src, cv::Mat &dst, size_t area);
+void label(const cv::Mat &src, cv::Mat &dst);

@@ -146,12 +146,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bwareaopen.cpp" />
     <ClCompile Include="imadjust.cpp" />
+    <ClCompile Include="label.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="vec2Mat.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CC.h" />
     <ClInclude Include="cellSegment.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

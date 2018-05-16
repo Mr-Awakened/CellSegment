@@ -21,15 +21,15 @@
     <ClCompile Include="imadjust.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="vec2Mat.cpp">
+    <ClCompile Include="bwareaopen.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="label.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cellSegment.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
