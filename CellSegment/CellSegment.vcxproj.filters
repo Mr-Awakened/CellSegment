@@ -24,7 +24,16 @@
     <ClCompile Include="bwareaopen.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="label.cpp">
+    <ClCompile Include="findRegionalMax.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imcomplement.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="findRegionalMin.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gradientAbs.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

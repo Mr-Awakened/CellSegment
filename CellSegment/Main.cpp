@@ -20,6 +20,7 @@ using cv::Point;
 using cv::distanceTransform;
 using cv::watershed;
 using cv::normalize;
+using cv::Sobel;
 
 
 
@@ -64,22 +65,28 @@ int main()
 	Mat connected2;
 	cv::bitwise_not(connected, connected2);
 	distanceTransform(connected2, dist, cv::DIST_L2, 3);
-	//normalize(dist, dist, 0, 1, cv::NORM_MINMAX);
-	dist.convertTo(dist, CV_8U);
-	imshow("dist", dist);
 
-	Mat dist2;
+	//imshow("dist", dist);
+	cout << dist.type() << std::endl;
 
-	cvtColor(dist, dist2, cv::COLOR_GRAY2BGR);
+	Mat connected3;
+	findRegionalMin(dist, connected3);
+	//imcomplement(dist, connected3);
+	imshow("connected3", connected3);
+
 	Mat DL;
-	connectedComponents(connected,DL);
+	connectedComponents(connected3,DL);
 	//DL.convertTo(DL, CV_32S);
 
+	Mat dist2;
+	normalize(dist, dist, 0, 255, cv::NORM_MINMAX);
+	dist.convertTo(dist, CV_8U);
+	cvtColor(dist, dist2, cv::COLOR_GRAY2BGR);
 	watershed(dist2, DL);
 
 	Mat DL2;
 	normalize(DL, DL2, 0, 255, cv::NORM_MINMAX);
-	DL.convertTo(DL2, CV_8U);
+	DL2.convertTo(DL2, CV_8U);
 	imshow("DL2", DL2);
 	
 
@@ -98,6 +105,16 @@ int main()
 
 	Mat combine = connected | bgm;
 	imshow("combine", combine);
+
+	Mat grad;
+	gradientAbs(stretched, grad);
+
+	Mat grad2;
+	normalize(grad, grad2, 0, 255, cv::NORM_MINMAX);
+	grad2.convertTo(grad2, CV_8U);
+	imshow("grad2", grad2);
+
+
 
 	waitKey(0);
 

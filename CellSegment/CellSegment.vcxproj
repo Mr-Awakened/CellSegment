@@ -147,8 +147,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bwareaopen.cpp" />
+    <ClCompile Include="findRegionalMin.cpp" />
+    <ClCompile Include="gradientAbs.cpp" />
     <ClCompile Include="imadjust.cpp" />
-    <ClCompile Include="label.cpp" />
+    <ClCompile Include="findRegionalMax.cpp" />
+    <ClCompile Include="imcomplement.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
