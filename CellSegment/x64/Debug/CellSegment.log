@@ -1,0 +1,11 @@
+﻿  Main.cpp
+d:\opencv\build\include\opencv2\core\mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+d:\opencv\build\include\opencv2\core\persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+d:\opencv\build\include\opencv2\core\utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+d:\opencv\build\include\opencv2\core\utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+d:\opencv\build\include\opencv2\imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+g:\ksc\cellsegment\cellsegment\cc.h(37): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+g:\ksc\cellsegment\cellsegment\cc.h(59): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+g:\ksc\cellsegment\cellsegment\cc.h(65): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  CellSegment.vcxproj -> G:\KSC\CellSegment\x64\Debug\CellSegment.exe
+  CellSegment.vcxproj -> G:\KSC\CellSegment\x64\Debug\CellSegment.pdb (Full PDB)
