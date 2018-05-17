@@ -1,4 +1,6 @@
 #include"cellSegment.h"
+#include"MorphologicOperations.h"
+
 #include<opencv2/opencv.hpp> 
 #include<iostream>
 #include<vector>
@@ -30,6 +32,7 @@ int main()
 	Mat gray;
 	cvtColor(origin, gray, CV_RGB2GRAY);
 	imshow("gray", gray);
+	//imwrite("gray.jpg", gray);
 
 	Mat element = getStructuringElement(cv::MORPH_ELLIPSE,Size(19,19));
 	//cout << element;
@@ -60,6 +63,18 @@ int main()
 	Mat connected;
 	bwareaopen(eroded, connected, 30);
 	imshow("connected", connected);
+	//imwrite("connected.jpg", connected);
+
+	//Mat temp;
+	//imreconstruct(gray,connected,temp);
+	////temp= imreconstructUChar(gray, connected,8);
+	//imshow("temp", temp);
+	////imwrite("temp.jpg", temp);
+	//Mat temp2;
+	//temp.convertTo(temp, CV_32F);
+	//findRegionalMax(temp, temp2);
+	//imshow("temp2", temp2);
+
 
 	Mat dist;
 	Mat connected2;
@@ -113,7 +128,6 @@ int main()
 	normalize(grad, grad2, 0, 255, cv::NORM_MINMAX);
 	grad2.convertTo(grad2, CV_8U);
 	imshow("grad2", grad2);
-
 
 
 	waitKey(0);

@@ -36,9 +36,18 @@
     <ClCompile Include="gradientAbs.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="imreconstruct.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MorphologicOperations.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cellSegment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MorphologicOperations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
